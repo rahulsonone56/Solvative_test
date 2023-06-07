@@ -1,0 +1,12 @@
+step 1 : download stable version 
+
+ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+ 
+step 2 :
+
+download checksum file
+ curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+
+step 3 :
+
+check checksum : echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
